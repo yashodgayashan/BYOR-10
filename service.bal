@@ -5,6 +5,7 @@ import ballerina/http;
 # 
 
 configurable string test = ?;
+configurable string test2 = ?;
 service / on new http:Listener(9090) {
 
     # A resource for generating greetings
@@ -15,6 +16,6 @@ service / on new http:Listener(9090) {
         if name is "" {
             return error("name should not be empty!");
         }
-        return "Hello, Hi " + name + " " + test;
+        return "Hello, Hi " + name + " " + test + " " + test2;
     }
 }

@@ -4,6 +4,7 @@ import ballerina/http;
 # bound to port `9090`.
 # 
 
+configurable string test = ?;
 service / on new http:Listener(9090) {
 
     # A resource for generating greetings
@@ -14,6 +15,6 @@ service / on new http:Listener(9090) {
         if name is "" {
             return error("name should not be empty!");
         }
-        return "Hello, Hi " + name;
+        return "Hello, Hi " + name + " " + test;
     }
 }

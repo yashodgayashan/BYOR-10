@@ -8,6 +8,10 @@ configurable string test = ?;
 
 configurable CallbackEndpoint[] externalCallbacks = ?;
 
+configurable CallbackEndpoint externalCallback = ?;
+
+configurable string[] names = ?;
+
 type CallbackEndpoint record {|   
     string name;   
     string url;    
@@ -39,5 +43,19 @@ service / on new http:Listener(9090) {
         }
 
         return externalCallbacks;
+    }
+
+    resource function get callbacks() returns CallbackEndpoint|error {
+        // Send a response back to the caller.
+        log:printInfo("This is info log", ctx={"name":"choreo"}, randomValue="10");
+
+        return externalCallback;
+    }
+
+    resource function get names() returns string[]|error {
+        // Send a response back to the caller.
+        log:printInfo("This is info log", ctx={"name":"choreo"}, randomValue="10");
+
+        return names;
     }
 }

@@ -5,6 +5,7 @@ import ballerina/log;
 # bound to port `9090`.
 # 
 configurable string test = ?;
+configurable string test2 = ?;
 
 service / on new http:Listener(9090) {
 
@@ -18,6 +19,6 @@ service / on new http:Listener(9090) {
         if name is "" {
             return error("name should not be empty!");
         }
-        return "Hello, Hi n " + name + " , Hiii " + test;
+        return "Hello, Hi n " + name + " , Hiii " + test + " " + test2;
     }
 }
